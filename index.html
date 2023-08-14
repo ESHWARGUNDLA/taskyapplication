@@ -20,6 +20,71 @@
       referrerpolicy="no-referrer" />
   </head>
   <body>
+    <!-- mobile toggler button for adding a new item -->
+    <div class="add_new_btn_for_mobile .d-md-none .d-lg-block">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewModal">
+  <i class="fa solid fa-plus"></i>Add New Item
+</button>
+</div>
+<!-- modal for adding new item-->
+<div class="modal fade" id="addnewModal" tabindex="-1" aria-labelledby="addnewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addnewModalLabel">Add New Task</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="mb-3">
+    <label for="image URL" class="form-label">Image URL</label>
+    <input type="url" class="form-control" id="image URL" placeholder="https://example.com/displayImg.png" />
+  </div>
+  <div class="mb-3">
+    <label for="taskTitle" class="form-label">Tak Title</label>
+    <input type="text" class="form-control" id="taskTitle" placeholder="Please enter your task title here.." required />
+  </div>
+  <div class="mb-3">
+    <label for="taskType" class="form-label">Task Type</label>
+    <input type="text" class="form-control" id="taskType" placeholder="Please enter your task type here.." required/>
+  </div>
+  <div class="mb-3">
+    <label for="taskDescription" class="form-label">Task Description</label>
+    <textarea type="comment" class="form-control" id="taskDescription" rows="4" 
+      placeholder="Please enter your detailed task description here.." required >
+    </textarea>
+  </div>
+  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal for viewing detailed information on card-->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showtask">
+  Launch demo modal
+</button>
+<!-- showtask trigger btn is not yet defined yet -->
+<div class="modal fade" id="showtask" tabindex="-1" aria-labelledby="showtaskLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="showtaskLabel">Task Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body task__modal__body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -43,8 +108,9 @@
             </li>
             <!-- link for add new -->
           </ul>
-          <button class="btn btn-outline-success" type="submit">
-            <i class="fa-solid fa-plus"></i>Add New
+          <!-- Add task -->
+          <button class="btn btn-outline-success" type="submit"  data-bs-toggle="modal" data-bs-target="#addnewModal">
+            <i class="fa-solid fa-plus"></i>Add New Item
           </button>
         </div>
       </div>
@@ -64,6 +130,13 @@
             ></span>
           </div>
         </div>
+      </section>
+      <section class="mt-4">
+        <div class="row task__contents">
+          <h5>the place where we can see our cards to be displayed</h5>
+
+        </div>
+
       </section>
     </div>
     <script src="script.js"></script>
